@@ -48,8 +48,6 @@ class SSRPC:
         self.dim = np.count_nonzero(valid_dim == True)
         self.state_space = Z[:, valid_dim]
 
-        return self.state_space
-
     def calculate_divergence(self, maxt):
         if self.state_space is not None:
             self.divergence = mle(self.state_space, maxt=maxt, window=int(self.omega * 0.9))
