@@ -19,7 +19,7 @@ class STPDP:
         self.detrend_res = []
         self.omega = None
 
-    def omega(self, start_limit=0, end_limit=-1):
+    def calculate_omega(self, start_limit=0, end_limit=-1):
         self.trend_res = []
         self.detrend_res = []
         for i in range(1, self.max_length + 1):

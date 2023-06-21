@@ -50,7 +50,7 @@ class SSRPC:
 
         return self.state_space
 
-    def divergence(self, maxt):
+    def calculate_divergence(self, maxt):
         if self.state_space:
             self.divergence = mle(self.state_space, maxt=maxt, window=int(self.omega * 0.9))
             self.time = np.arange(maxt * self.sample, step=self.sample)
