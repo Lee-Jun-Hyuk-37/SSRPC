@@ -57,3 +57,6 @@ class STPDP:
             plt.show()
 
             print("omega: {}".format(self.omega))
+
+        else:
+            print("You need to execute the omega method first")
