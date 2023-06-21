@@ -41,7 +41,7 @@ class STPDP:
         return self.omega
 
     def plot(self):
-        if self.omega:
+        if self.omega is not None:
             window_size = np.arange(1, self.max_length + 1)
             plt.plot(window_size[:self.max_length + 1], self.trend_res[:self.max_length], label='Trend')
             plt.plot(window_size[:self.max_length + 1], self.detrend_res[:self.max_length], label='Detrended')

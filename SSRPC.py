@@ -37,7 +37,7 @@ class SSRPC:
         valid_dim = [False for i in range(self.omega)]
 
         for i in range(self.omega):
-            tmp = STPDP(Z[:, i], self.omega).omega()
+            tmp = STPDP(Z[:, i], self.omega).calculate_omega()
 
             if tmp >= self.omega / 2:
                 valid_dim[i] = True
@@ -51,18 +51,19 @@ class SSRPC:
         return self.state_space
 
     def calculate_divergence(self, maxt):
-        if self.state_space:
+        if self.state_space is not None:
             self.divergence = mle(self.state_space, maxt=maxt, window=int(self.omega * 0.9))
             self.time = np.arange(maxt * self.sample, step=self.sample)
         else:
             print("You need to execute the reconsturct method first")
 
     def plot_divergence(self, expected=None):
-        if self.divergence:
+        if self.divergence is not None:
             plt.figure()
-            plt.plot(self.time, self.divergence)
+            plt.plot(self.time, self.divergence, label="divergence")
             if expected:
-                plt.plot(self.time, expected * self.time + self.divergence[0])
+                plt.plot(self.time, expected * self.time + self.divergence[0], label="expected")
+                plt.legend()
             plt.xlabel("time")
             plt.ylabel('ln<divergence>')
             plt.show()
@@ -73,4 +74,4 @@ class SSRPC:
         start, end = linear_region[0], linear_region[1]
         t = self.time.reshape(-1, 1)
         d = self.divergence.reshape(-1, 1)
-        return LinearRegression().fit(t[start:end], d[start:end]).coef_
+        return LinearRegression().fit(t[start:end], d[start:end]).coef_[0, 0]
