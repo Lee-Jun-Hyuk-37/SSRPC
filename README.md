@@ -15,8 +15,8 @@ The following figures show noise-robustness, which is the primary advantage of S
 Despite a significant level of noise, the slope of linear region of the divergence graph which represents maximal Lyapunov exponent remains consistent, in contrast to the conventional method.  
 
 <p float="left">
-  <img src="figures/ssrpc.jpg?raw=true" width="50.0%" />
-  <img src="figures/conventional.jpg?raw=true" width="50.0%" />
+  <img src="figures/ssrpc.jpg?raw=true" width="49.0%" />
+  <img src="figures/conventional.jpg?raw=true" width="49.0%" />
 </p>
 
 
