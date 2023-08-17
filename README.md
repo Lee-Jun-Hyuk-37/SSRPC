@@ -36,7 +36,7 @@ conda activate SSRPC
 
 
 ## Publication
-The paper is scheduled for publication in **Chaos, Solitons & Fractals**, and the link will be updated soon.
+Published in **Chaos, Solitons & Fractals**. [Link](https://www.sciencedirect.com/science/article/pii/S0960077923008172)
 
 
 ## Acknowledgement
