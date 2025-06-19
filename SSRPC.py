@@ -15,7 +15,7 @@ class SSRPC:
         self.state_space = None
         self.divergence = None
 
-    def reconstruct(self):
+    def reconstruct(self, dimension=None):
         length = len(self.data)
         if length % self.omega == 0:
             pass
@@ -33,18 +33,18 @@ class SSRPC:
         D, U = np.linalg.eig(S)
         Z = np.matmul((X - np.tile(np.mean(X, axis=0), [X.shape[0], 1])), U)
         Z = Z.real
+        
+        valid_dim = np.array([False for i in range(self.omega)])
+        if dimension:
+            valid_dim[:dimension] = True
+        else:
+            for i in range(self.omega):
+                tmp = STPDP(Z[:, i], self.omega).calculate_omega()
+                if tmp >= self.omega / 2:
+                    valid_dim[i] = True
+                else:
+                    break
 
-        valid_dim = [False for i in range(self.omega)]
-
-        for i in range(self.omega):
-            tmp = STPDP(Z[:, i], self.omega).calculate_omega()
-
-            if tmp >= self.omega / 2:
-                valid_dim[i] = True
-            else:
-                break
-
-        valid_dim = np.array(valid_dim)
         self.dim = np.count_nonzero(valid_dim == True)
         self.state_space = Z[:, valid_dim]
 
