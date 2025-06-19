@@ -43,6 +43,7 @@ class STPDP:
     def plot(self):
         if self.omega is not None:
             window_size = np.arange(1, self.max_length + 1)
+            plt.figure()
             plt.plot(window_size[:self.max_length + 1], self.trend_res[:self.max_length], label='Trend')
             plt.plot(window_size[:self.max_length + 1], self.detrend_res[:self.max_length], label='Detrended')
             plt.xlabel('Window size')
@@ -50,7 +51,7 @@ class STPDP:
             plt.legend()
             plt.show()
 
-            plt.plot(window_size[:self.max_length + 1], (self.trend_res + self.detrend_res)[:self.max_length])
+            plt.plot(window_size[:self.max_length + 1], (self.trend_res + self.detrend_res)[:self.max_length], label="STPDP")
             plt.xlabel('Window size')
             plt.ylabel('Power')
             plt.title("Power of Trend + Power of Detrended")
