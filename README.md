@@ -44,7 +44,19 @@ This repository requires NoLiTSA, Numpy, Scipy, Numba, Matplotlib, and Scikit-le
   conda activate SSRPC
   ```
 
-## Publication
+## Citation
+
+```
+@article{lee2023ssrpc,
+  title={Noise-robust estimation of the maximal Lyapunov exponent based on state space reconstruction with principal components},
+  author={Lee, Jun Hyuk and Park, Il Seung and Ahn, Jooeun},
+  journal={Chaos, Solitons \& Fractals},
+  volume={174},
+  pages={113916},
+  year={2023},
+  publisher={Elsevier}
+}
+```
 
 Published in **Chaos, Solitons & Fractals**. [Link](https://www.sciencedirect.com/science/article/pii/S0960077923008172)
 
