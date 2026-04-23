@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ssrpc"
+version = "0.2.0"
+description = "State Space Reconstruction with Principal Components for noise-robust maximal Lyapunov exponent estimation."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Jun Hyuk Lee" },
+    { name = "Il Seung Park" },
+    { name = "Jooeun Ahn" },
+]
+keywords = [
+    "chaos",
+    "lyapunov exponent",
+    "state space reconstruction",
+    "nonlinear time series",
+    "principal components",
+]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering",
+]
+dependencies = [
+    "numpy",
+    "scipy",
+    "numba",
+    "matplotlib",
+    "scikit-learn",
+]
+
+[project.urls]
+Homepage = "https://github.com/Lee-Jun-Hyuk-37/SSRPC"
+Paper = "https://www.sciencedirect.com/science/article/pii/S0960077923008172"
+
+[tool.setuptools.packages.find]
+include = ["ssrpc*"]
+exclude = ["nolitsa*", "figures*", "_diagnostics*"]
