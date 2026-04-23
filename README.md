@@ -94,21 +94,18 @@ model.plot_divergence(expected=1.5)
 lyap = model.mle((0, 200))
 ```
 
-### Backwards compatibility
-
-Scripts that used `from SSRPC import SSRPC` / `from STPDP import STPDP`
-continue to work — the top-level modules are re-exporting shims onto the
-new `ssrpc` package.
+Existing code that used `from SSRPC import SSRPC` / `from STPDP import
+STPDP` keeps working unchanged.
 
 ## Notes
 
-- Importing `ssrpc` (or either shim) transparently patches a
-  memory-leak in NoLiTSA's `@jit`-compiled distance functions. The
-  replacements are bit-for-bit equivalent to the upstream versions and
-  remove hundreds of MB of leaked memory per MLE run.
+- Importing `ssrpc` transparently patches a memory leak in NoLiTSA's
+  `@jit`-compiled distance functions. The replacements produce the
+  same numerical output and remove hundreds of MB of leaked memory
+  per MLE run.
 - `SSRPC.calculate_divergence` and `SSRPC.mle` now raise `RuntimeError`
-  if called before the prerequisite step; the original `print`-only
-  warnings were easy to miss.
+  when called out of order; the original `print`-only warnings were
+  easy to miss.
 
 ## Citation
 
