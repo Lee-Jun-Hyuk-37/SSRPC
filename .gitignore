@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+.claude/
+_diagnostics/
+build/
+dist/
+*.egg-info/
+.venv/
+.env

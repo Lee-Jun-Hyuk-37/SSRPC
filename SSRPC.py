@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import _numba_patches  # noqa: F401  (applies nolitsa numba memory-leak patch on import)
 from nolitsa.nolitsa.lyapunov import mle
 from sklearn.linear_model import LinearRegression
 from STPDP import STPDP
